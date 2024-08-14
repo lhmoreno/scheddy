@@ -1,0 +1,20 @@
+{
+  "Auth": {
+    "input": {
+      "label": "Senha do administrador",
+      "placeholder": "Digite a senha",
+      "error": "Senha inválida"
+    },
+    "button": {
+      "title": "Entrar"
+    }
+  },
+  "NotFound": {
+    "description": "Página não encontrada!"
+  },
+  "Theme": {
+    "system": "Sistema",
+    "dark": "Escuro",
+    "light": "Claro"
+  }
+}

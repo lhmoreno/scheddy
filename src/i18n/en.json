@@ -1,0 +1,20 @@
+{
+  "Auth": {
+    "input": {
+      "label": "Administrator password",
+      "placeholder": "Type password",
+      "error": "Invalid password"
+    },
+    "button": {
+      "title": "Login"
+    }
+  },
+  "NotFound": {
+    "description": "Page not found!"
+  },
+  "Theme": {
+    "system": "System",
+    "dark": "Dark",
+    "light": "Light"
+  }
+}
