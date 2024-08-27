@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-import { ThemeButton } from '@/components/theme-provider'
-import { getServerAuthSession } from '@/lib/auth'
+import { Header } from '@/components/header'
+import { getServerAuthSession } from '@/server/lib/auth'
 
 export const metadata: Metadata = {
   robots: 'noindex, nofollow',
@@ -20,7 +20,7 @@ export default async function AdminLayout({
     const headersList = headers()
     const referer = headersList.get('referer')
 
-    if (referer) {
+    if (referer && referer !== '/') {
       const pathname = new URL(referer).pathname
 
       redirect(`/auth?redirect=${pathname}`)
@@ -30,11 +30,10 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="container">
-      <header className="flex justify-end py-2">
-        <ThemeButton />
-      </header>
-      {children}
+    <div>
+      <Header />
+
+      <div className="container mt-4">{children}</div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   app:
@@ -6,9 +6,23 @@ services:
       context: .
       dockerfile: Dockerfile
     image: scheddy
-    container_name: scheddy
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       NODE_ENV: production
-    command: "npm run start"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: scheddy
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

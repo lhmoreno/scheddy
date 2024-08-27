@@ -2,14 +2,14 @@ import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
-import { AuthForm } from '@/components/auth-form'
-import { getServerAuthSession } from '@/lib/auth'
+import { AuthForm } from '@/components/forms/auth-form'
+import { getServerAuthSession } from '@/server/lib/auth'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: '', namespace: 'Auth' })
 
   return {
-    title: `${t('button.title')} | Scheddy`,
+    title: `${t('title')} | Scheddy`,
   }
 }
 
@@ -24,11 +24,11 @@ export default async function Auth({ searchParams }: { searchParams: any }) {
       redirect(pathname)
     }
 
-    redirect('/dashboard')
+    redirect('/')
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center">
+    <main className="flex min-h-screen items-center justify-center p-4">
       <AuthForm />
     </main>
   )

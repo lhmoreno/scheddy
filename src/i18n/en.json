@@ -1,12 +1,8 @@
 {
   "Auth": {
+    "title": "Login",
     "input": {
-      "label": "Administrator password",
-      "placeholder": "Type password",
-      "error": "Invalid password"
-    },
-    "button": {
-      "title": "Login"
+      "github": "Login with Github"
     }
   },
   "NotFound": {
@@ -16,5 +12,46 @@
     "system": "System",
     "dark": "Dark",
     "light": "Light"
+  },
+  "Header": {
+    "MainMenu": {
+      "schedulings": "Schedulings",
+      "services": "Services",
+      "availability": "Availability"
+    },
+    "UserNav": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "logOut": "Log out"
+    }
+  },
+  "Me": {
+    "ProfileForm": {
+      "title": "Your Profile",
+      "subtitle": "Update your profile information.",
+      "input": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "description": "This is the name that will be displayed publicly."
+        },
+        "bio": {
+          "label": "Bio",
+          "placeholder": "Your bio",
+          "description": "This is the description that will be displayed publicly."
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "Your slug",
+          "description": "This is the public display name."
+        }
+      },
+      "button": "Update Profile",
+      "messages": {
+        "updateError": "Error updating profile",
+        "updateSuccess": "Profile updated",
+        "slugError": "This slug is already in use"
+      }
+    }
   }
 }

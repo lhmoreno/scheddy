@@ -5,8 +5,10 @@ import { Inter, Kanit } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 
-import { AuthProvider } from '@/components/auth-provider'
-import { ThemeProvider } from '@/components/theme-provider'
+import { AuthProvider } from '@/components/providers/auth-provider'
+import { ThemeProvider } from '@/components/providers/theme-provider'
+import { Toaster } from '@/components/ui/toaster'
+import { TRPCReactProvider } from '@/lib/trpc-client'
 import { cn } from '@/lib/utils'
 
 const fontKanit = Kanit({
@@ -45,16 +47,19 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
+            <TRPCReactProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              </ThemeProvider>
+            </TRPCReactProvider>
           </AuthProvider>
         </NextIntlClientProvider>
+        <Toaster />
       </body>
     </html>
   )

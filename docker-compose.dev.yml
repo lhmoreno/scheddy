@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: scheddy
+    volumes:
+      - ./db:/var/lib/postgresql/data

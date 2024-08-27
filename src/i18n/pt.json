@@ -1,12 +1,8 @@
 {
   "Auth": {
+    "title": "Entrar",
     "input": {
-      "label": "Senha do administrador",
-      "placeholder": "Digite a senha",
-      "error": "Senha inválida"
-    },
-    "button": {
-      "title": "Entrar"
+      "github": "Entrar com Github"
     }
   },
   "NotFound": {
@@ -16,5 +12,46 @@
     "system": "Sistema",
     "dark": "Escuro",
     "light": "Claro"
+  },
+  "Header": {
+    "MainMenu": {
+      "schedulings": "Agendamentos",
+      "services": "Serviços",
+      "availability": "Disponibilidade"
+    },
+    "UserNav": {
+      "profile": "Perfil",
+      "settings": "Configurações",
+      "logOut": "Sair"
+    }
+  },
+  "Me": {
+    "ProfileForm": {
+      "title": "Seu perfil",
+      "subtitle": "Atualize as informações do seu perfil.",
+      "input": {
+        "name": {
+          "label": "Nome",
+          "placeholder": "Seu nome",
+          "description": "Este é o nome que será exibido publicamente"
+        },
+        "bio": {
+          "label": "Bio",
+          "placeholder": "Sua bio",
+          "description": "Esta é a descrição que será exibida publicamente"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "Seu slug",
+          "description": "Este é o nome de exibição público"
+        }
+      },
+      "button": "Atualizar perfil",
+      "messages": {
+        "updateError": "Erro ao atualizar o perfil",
+        "updateSuccess": "Perfil atualizado",
+        "slugError": "Este slug já está em uso"
+      }
+    }
   }
 }
