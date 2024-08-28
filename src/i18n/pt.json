@@ -52,6 +52,44 @@
         "updateSuccess": "Perfil atualizado",
         "slugError": "Este slug já está em uso"
       }
+    },
+    "DeleteAccount": {
+      "title": "Deletar sua conta",
+      "subtitle": "Ao fazer isso, todos os seus dados serão apagados permanentemente.",
+      "button": "Deletar",
+      "dialog": {
+        "title": "Tem certeza disso?",
+        "subtitle": "Essa ação não tem volta. Isso irá remover permanentemente sua conta de nossos servidores.",
+        "cancel": "Cancelar",
+        "delete": "Deletar para sempre"
+      }
     }
+  },
+  "Services": {
+    "title": "Serviços",
+    "subtitle": "Crie serviços para que as pessoas possam fazer agendamentos.",
+    "addButton": "Novo serviço",
+    "dialog": {
+      "titleCreate": "Criar um serviço",
+      "descriptionCreate": "Adicione um novo serviço para seus clientes",
+      "buttonCreate": "Adicionar",
+      "titleUpdate": "Atualize este serviço",
+      "descriptionUpdate": "Altere as informações deste serviço para seus clientes",
+      "buttonUpdate": "Atualizar",
+      "buttonCancel": "Cancelar",
+      "input": {
+        "name": {
+          "label": "Nome do serviço",
+          "placeholder": "Desenvolvimento de jogos"
+        },
+        "timeInMinutes": {
+          "label": "Tempo"
+        }
+      }
+    }
+  },
+  "Availability": {
+    "title": "Disponibilidade",
+    "subtitle": "Defina a sua disponibilidade durante a semana"
   }
 }

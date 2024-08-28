@@ -5,6 +5,8 @@ import { ProfileForm } from '@/components/forms/profile-form'
 import { Separator } from '@/components/ui/separator'
 import { api } from '@/lib/trpc-server'
 
+import { DeleteAccountButton } from './delete-account-button'
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: '', namespace: 'Me.ProfileForm' })
 
@@ -30,16 +32,17 @@ export default async function Me() {
         <Separator />
         <ProfileForm profile={profile} />
       </div>
-      <div className="space-y-6 rounded-md border p-6">
-        <div>
-          <h3 className="text-lg font-medium">Account</h3>
+
+      <div className="flex h-fit rounded-md border">
+        <div className="flex-1 p-6">
+          <h3 className="text-lg font-medium">{t('DeleteAccount.title')}</h3>
           <p className="text-sm text-muted-foreground">
-            Update your account settings. Set your preferred language and
-            timezone.
+            {t('DeleteAccount.subtitle')}
           </p>
         </div>
-        <Separator />
-        <div>delete button</div>
+        <div className="flex items-center border-l bg-muted/40 px-6">
+          <DeleteAccountButton />
+        </div>
       </div>
     </div>
   )

@@ -71,6 +71,27 @@ export const routerProfile = createTRPCRouter({
       })
     }),
 
+  delete: protectedProcedure.mutation(async ({ ctx }) => {
+    const prismaUser = await ctx.prisma.user.findUnique({
+      where: {
+        id: ctx.session.user.id,
+      },
+    })
+
+    if (!prismaUser) {
+      throw new TRPCError({
+        code: 'NOT_FOUND',
+        message: 'User profile not found.',
+      })
+    }
+
+    await ctx.prisma.user.delete({
+      where: {
+        id: ctx.session.user.id,
+      },
+    })
+  }),
+
   getPublic: publicProcedure
     .input(z.object({ slug: z.string() }))
     .query(async ({ ctx, input }) => {

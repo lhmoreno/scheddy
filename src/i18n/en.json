@@ -52,6 +52,44 @@
         "updateSuccess": "Profile updated",
         "slugError": "This slug is already in use"
       }
+    },
+    "DeleteAccount": {
+      "title": "Delete your account",
+      "subtitle": "By doing this, all your data will be permanently deleted.",
+      "button": "Delete",
+      "dialog": {
+        "title": "Are you sure about this?",
+        "subtitle": "There is no way back from this action. This will permanently remove your account from our servers.",
+        "cancel": "Cancel",
+        "delete": "Delete forever"
+      }
     }
+  },
+  "Services": {
+    "title": "Services",
+    "subtitle": "Create services so people can book appointments.",
+    "addButton": "New service",
+    "dialog": {
+      "titleCreate": "Create a service",
+      "descriptionCreate": "Add a new service for your customers",
+      "buttonCreate": "Add",
+      "titleUpdate": "Update this service",
+      "descriptionUpdate": "Change this service's information for your customers",
+      "buttonUpdate": "Update",
+      "buttonCancel": "Cancel",
+      "input": {
+        "name": {
+          "label": "Service name",
+          "placeholder": "Game development"
+        },
+        "timeInMinutes": {
+          "label": "Time"
+        }
+      }
+    }
+  },
+  "Availability": {
+    "title": "Availability",
+    "subtitle": "Set your availability during the week"
   }
 }

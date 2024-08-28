@@ -9,7 +9,6 @@ datasource db {
 
 model Account {
   id                       String  @id @default(cuid())
-  userId                   String
   type                     String
   provider                 String
   providerAccountId        String
@@ -22,7 +21,8 @@ model Account {
   session_state            String?
   refresh_token_expires_in Int?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
@@ -31,10 +31,10 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
   expires      DateTime
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
 
   @@map("sessions")
 }
@@ -59,8 +59,33 @@ model User {
   image         String?
   bio           String?
 
-  accounts Account[]
-  sessions Session[]
+  accounts       Account[]
+  sessions       Session[]
+  services       Service[]
+  availabilities Availability[]
 
   @@map("users")
+}
+
+model Service {
+  id            Int    @id @default(autoincrement())
+  name          String
+  timeInMinutes Int
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@map("services")
+}
+
+model Availability {
+  id                 Int @id @default(autoincrement())
+  weekDay            Int
+  startTimeInMinutes Int
+  endTimeInMinutes   Int
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@map("availabilities")
 }

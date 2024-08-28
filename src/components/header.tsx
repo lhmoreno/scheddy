@@ -3,7 +3,8 @@
 import { LogOutIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
+import { usePathname } from 'next/navigation'
+import { signOut, useSession } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 
@@ -23,6 +24,7 @@ export function Header() {
   const { data: session } = useSession()
 
   const { resolvedTheme } = useTheme()
+  const pathname = usePathname()
 
   const t = useTranslations('Header')
 
@@ -43,25 +45,29 @@ export function Header() {
         <nav className="mx-6 flex items-center space-x-6">
           <Link
             href="/"
-            className="text-sm font-medium transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85 aria-selected:text-foreground aria-selected:hover:text-foreground"
+            aria-selected={pathname === '/'}
           >
             Dashboard
           </Link>
           <Link
-            href="#"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85"
+            href="/schedulings"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85 aria-selected:text-foreground aria-selected:hover:text-foreground"
+            aria-selected={pathname.startsWith('/schedulings')}
           >
             {t('MainMenu.schedulings')}
           </Link>
           <Link
-            href="#"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85"
+            href="/services"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85 aria-selected:text-foreground aria-selected:hover:text-foreground"
+            aria-selected={pathname.startsWith('/services')}
           >
             {t('MainMenu.services')}
           </Link>
           <Link
-            href="#"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85"
+            href="/availability"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground/85 aria-selected:text-foreground aria-selected:hover:text-foreground"
+            aria-selected={pathname.startsWith('/availability')}
           >
             {t('MainMenu.availability')}
           </Link>
@@ -102,7 +108,10 @@ export function Header() {
               <DropdownMenuItem>{t('UserNav.settings')}</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-2">
+            <DropdownMenuItem
+              className="cursor-pointer gap-2"
+              onClick={() => signOut()}
+            >
               {t('UserNav.logOut')}{' '}
               <LogOutIcon className="h-4 w-4 text-destructive/80" />
             </DropdownMenuItem>
